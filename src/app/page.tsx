@@ -3,8 +3,39 @@ import { Inter } from 'next/font/google';
 import styles from './page.module.css';
 import Paragraph from '@/components/ui/Paragraph';
 
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from 'next';
+import LargeHeading from '@/components/ui/LargeHeading';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Similarity API | Home',
+  description: 'Free & open-source text similarity API',
+};
 
 export default function Home() {
-  return <main className='bg-red-500'></main>;
+  return (
+    <div className='relative h-screen flex items-center justify-center overflow-x-hidden'>
+      <div className='container pt-32 max-w-7xl mx-auto w-full h-full'>
+        <div className='h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start'>
+          <LargeHeading
+            size='lg'
+            className='three-d text-black dark:text-light-gold'
+          >
+            Easily determinate <br /> text similarity.
+          </LargeHeading>
+          <Paragraph className='max-w-xl lg:text-left'>
+            With the text similarity API, you can easily determinate the
+            similarity between two pieces of with a free{' '}
+            <Link
+              href='/login'
+              className='underline underline-offset-2 text-black dark:text-light-gold'
+            >
+              API key
+            </Link>
+            .
+          </Paragraph>
+        </div>
+      </div>
+    </div>
+  );
 }
