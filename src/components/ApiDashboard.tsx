@@ -8,6 +8,7 @@ import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
 import { Input } from '@/components/ui/Input';
 import Table from '@/components/Table';
+import ApiKeyOptions from '@/components/ApiKeyOptions';
 
 const ApiDashboard = async ({}) => {
   const user = await getServerSession(authOptions);
@@ -40,14 +41,14 @@ const ApiDashboard = async ({}) => {
       <div className='flex flex-col items-center justify-center gap-4 md:flex-row md:justify-start'>
         <Paragraph>Your API key: </Paragraph>
         <Input className='truncate w-fit' readOnly value={activeApiKey.key} />
-        {/* add options to create new / revoke */}
+        <ApiKeyOptions apiKeyKey={activeApiKey.key}/>
       </div>
 
       <Paragraph className='mt-4 -mb-4 text-center md:text-left'>
         Your API history:
       </Paragraph>
 
-      <Table userRequests={serializableRequests}/>
+      <Table userRequests={serializableRequests} />
     </div>
   );
 };
