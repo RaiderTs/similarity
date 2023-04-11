@@ -17,7 +17,6 @@ const page: FC = () => {
       <div className='flex flex-col items-center gap-6'>
         <LargeHeading>Making a request</LargeHeading>
         <Paragraph>api/v1/similarity</Paragraph>
-
         <DocumentationTabs />
       </div>
     </div>

@@ -23,7 +23,12 @@ const page = async ({}) => {
 
   return (
     <div className='mx-auto mt-16 max-w-7xl'>
-      {apiKey ? <ApiDashboard /> : <RequestApiKey />}
+      {!apiKey ? (
+        //  @ts-expect-error Server Component
+        <ApiDashboard />
+      ) : (
+        <RequestApiKey />
+      )}
     </div>
   );
 };
